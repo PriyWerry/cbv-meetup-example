@@ -11,7 +11,8 @@ class BaseView(View):
     return self.prepare_response(response, **kwargs)
     
   def get(self, request, *args, **kwargs):
-    response = self.process_get()
+    (request, args, kwargs) = self.prepare_request(request, *args, **kwargs)
+    response = self.process_get(request, *args, **kwargs)
     return self.prepare_response(response)
     
   def prepare_request(self, request, *args, **kwargs):

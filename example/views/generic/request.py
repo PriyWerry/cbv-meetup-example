@@ -10,14 +10,14 @@ class PostParamRequest(BaseView):
   params = []
   
   def prepare_request(self, request, *args, **kwargs):
-    post_params = json.loads(request.body.decode('utf-8'))
+    payload = request.GET.dict()
     processed_params = []
     
     for param in self.params:
       try:
-        processed_params.append(post_params.pop(param))
+        processed_params.append(payload.pop(param))
       except KeyError:
-        raise SomeVeryClearError()
+        raise SomeVeryClearError('Parameter ({}) missing!'.format(param))
         
     # Call next request preparator with injected processed parameters
     return super().prepare_request(request, *processed_params, **kwargs)
