@@ -8,6 +8,6 @@ class ExampleTestCase(TestCase):
     param1 = 1
     param2 = 2
     
-    result = ExampleView().process_post(request, param1, param2)
+    result = ExampleView().process_get(request, param1, param2)
     
-    self.assertEqual(result['key'], param1+param2)
+    self.assertEqual(result['result'], param1+param2)
