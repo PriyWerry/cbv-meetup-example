@@ -1,0 +1,3 @@
+class SomeVeryClearError(Exception):
+  pass
+  
