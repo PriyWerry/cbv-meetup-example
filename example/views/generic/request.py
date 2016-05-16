@@ -1,7 +1,5 @@
 from example.views.generic.base import BaseView
 from example.mock import SomeVeryClearError
-import json
-
 
 class ParamRequest(BaseView):
   """ Generic view for API views which
