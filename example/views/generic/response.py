@@ -9,5 +9,5 @@ class JsonResponse(BaseView):
   
   def prepare_response(self, response, **kwargs):
     # Some conversion of the response data might be necessary
-    # here to enable converting it to JSON.
+    # here to be able to convert it to JSON.
     return super().prepare_response(DjangoJsonResponse(response), **kwargs)
